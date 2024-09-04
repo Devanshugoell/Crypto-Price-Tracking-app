@@ -20,6 +20,21 @@
 
 .navbar li {
     cursor: pointer;
+    font-weight: 600;
+}
+
+.navbar li:hover{
+    border-bottom: 2px solid #fff;
+    animation: fadeIn 1.5s;
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .nav-right{
