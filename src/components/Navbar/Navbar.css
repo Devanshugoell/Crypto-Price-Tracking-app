@@ -20,7 +20,7 @@
 
 .navbar li {
     cursor: pointer;
-    font-weight: 600;
+    letter-spacing: 2px;
 }
 
 .navbar li:hover{
