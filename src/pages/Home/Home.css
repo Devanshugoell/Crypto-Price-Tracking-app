@@ -22,7 +22,7 @@
 
 .hero p {
     width: 75%;
-    color: #e3e3e3;
+    color: #e3e3e3 ;
     line-height: 1.5;
     font-family: "Poppins", sans-serif;
 }
@@ -122,4 +122,8 @@
     .hero form input {
         width: 100px;
     }
+}
+
+a{
+    color: #e3e3e3 ;
 }
