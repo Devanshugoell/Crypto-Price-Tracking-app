@@ -5,6 +5,23 @@ import { CoinContext } from "../../context/CoinContext";
 const Home = () => {
   const { allCoin, currency } = useContext(CoinContext);
   const [displayCoin, setDisplayCoin] = useState([]);
+  const [input, setInput] = useState("");
+
+  const inputHandler = (event) => {
+    setInput(event.target.value);
+    if (event.target.value === "") {
+      setDisplayCoin(allCoin);
+    }
+  };
+
+  const searchHandler = async (e) => {
+    e.preventDefault();
+
+    const filteredCoins = await allCoin.filter((item) => {
+      return item.name.toLowerCase().includes(input.toLowerCase());
+    });
+    setDisplayCoin(filteredCoins);
+  };
 
   useEffect(() => {
     setDisplayCoin(allCoin);
@@ -20,8 +37,14 @@ const Home = () => {
           Welcome to the world's largest cryptocurrency market . Sign up to
           explore more about cryptos.
         </p>
-        <form>
-          <input type="text" placeholder="Search Crypto.." />
+        <form onSubmit={searchHandler}>
+          <input
+            type="text"
+            placeholder="Search Crypto.."
+            value={input}
+            onChange={inputHandler}
+            required
+          />
           <button type="submit">Search</button>
         </form>
       </div>
@@ -31,7 +54,7 @@ const Home = () => {
           <p>Coins</p>
           <p>Price</p>
           <p>24H Change</p>
-          <p>Market Cap</p>
+          <p className="market-cap">Market Cap</p>
         </div>
         {displayCoin.map((item, index) => {
           return (
@@ -51,7 +74,7 @@ const Home = () => {
               >
                 {Math.floor(item.price_change_percentage_24h * 100) / 100}
               </p>
-              <p>
+              <p className="market-cap">
                 {currency.symbol} {item.market_cap.toLocaleString()}
               </p>
             </div>
