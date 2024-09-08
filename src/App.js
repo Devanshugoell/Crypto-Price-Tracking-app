@@ -2,9 +2,9 @@ import "./App.css";
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
-import Coin from "./pages/Coin/Coin";
 import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
+import Coin from "./pages/Coin/Coin";
 
 const App = () => {
   return (
